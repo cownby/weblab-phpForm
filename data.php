@@ -1,5 +1,5 @@
 <?php
 
-$beatleList = ["ringo","john","paul","george"];
+$beatleList = ["Ringo","John","Paul","George"];
 
 ?>

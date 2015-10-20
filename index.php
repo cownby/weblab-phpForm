@@ -1,8 +1,8 @@
 <?php
 	$pageTitle = "WebLab Signup Form";
 	require_once 'common/header.php';
+	require_once "common/AllCommonUtils.php";
 	require "data.php";
-	
 ?>
 
 	<form action="process.php" method="post">
@@ -10,9 +10,9 @@
 	    <label for="title">Title:</label>
 	    <select class="" name="title">
 	        <option value="">Select a Title</option>
-	        <option value="mr">Mr.</option>
-	        <option value="mrs">Mrs.</option>
-	        <option value="ms">Ms.</option>
+	        <option value="Mr">Mr.</option>
+	        <option value="Mrs">Mrs.</option>
+	        <option value="Ms">Ms.</option>
 	        <option value="?">Undetermined</option>
 	    </select>
 	    <br /><br />
@@ -25,22 +25,37 @@
 	
 	    <br /><br />
 
-	    <label for="beatle">Your favorite Beatle?</label>
-	    <select class="" name="beatle">
+		<!-- Beatle select list hardcoded -->
+	    <label for="beatleHC">(HC) Your favorite Beatle?</label>
+	    <select class="" name="beatleHC">
+	        <option value="">Select a Beatle</option>
+	        <option value="ringo">Ringo</option>
+	        <option value="john">John</option>
+	        <option value="paul">Paul</option>
+	        <option value="george">George</option>
+	    </select>
+	    <br /><br />
+	    	    
+		<!-- construct select list from array in data.php -->
+	    <label for="beatleArray">(array) Your favorite Beatle?</label>
+	    <select class="" name="beatleArray">
 	        <option value="">Select a Beatle</option>
 		    <?php
 			    foreach($beatleList as $key => $val) { 
 			    	echo '<option value='.$key . '>'.$val.'</option>';
 			    } 
 			?>	        
-	        <!--
-	        <option value="ringo">Ringo</option>
-	        <option value="john">John</option>
-	        <option value="paul">Paul</option>
-	        <option value="george">George</option>
-	        -->
 	    </select>
 	    <br /><br />
+	    
+	    <!--  construct beatle select list from class -->
+	    <?php
+	    	$BList = new SelectList("beatle",$beatleList);
+	    	echo $BList->makeMenuWithKeys("(class) Your favorite Beatle?");
+	    ?>
+	    <br /><br />
+	    	    
+	    	    
 	    <input type="submit" value="submit">
 	    <input type="reset" value="reset">
 	    <br />
