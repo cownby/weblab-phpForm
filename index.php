@@ -47,6 +47,16 @@
 			?>	        
 	    </select>
 	    <br /><br />
+	    <!-- what this produces: 
+	    <label for="beatleArray">(array) Your favorite Beatle?</label>
+	    <select class="" name="beatleArray">
+	        <option value="">Select a Beatle</option>
+	        <option value=0>Ringo</option>
+	        <option value=1>John</option>
+	        <option value=2>Paul</option>
+	        <option value=3>George</option>
+	    </select>	    
+	    -->
 	    
 	    <!--  construct beatle select list from class -->
 	    <?php
@@ -54,7 +64,16 @@
 	    	echo $BList->makeMenuWithKeys("(class) Your favorite Beatle?");
 	    ?>
 	    <br /><br />
-	    	    
+	    <!-- what this produces: 
+	    <label for="beatle">(class) Your favorite Beatle?</label>
+	    <select class="" name="beatle">
+	        <option value="">Select One</option>
+	        <option value=0>Ringo</option>
+	        <option value=1>John</option>
+	        <option value=2>Paul</option>
+	        <option value=3>George</option>
+	    </select>	    
+	    -->	    	    
 	    	    
 	    <input type="submit" value="submit">
 	    <input type="reset" value="reset">
